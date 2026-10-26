@@ -11,6 +11,7 @@ public class Main {
         Dihh.write(img, new File("cat.dihh"));
         BufferedImage back = Dihh.read(new File("cat.dihh"));
 
-        ToPNG.dihhToPng(new File("cat.dihh"), new File("cat2.png"));
-    }
+//        ToPNG.dihhToPng(new File("cat.dihh"), new File("cat2.png"));
+//    }
+        ToJPG.dihhToJpg(new File("cat.dihh"), new File("cat2.jpg"));}
 }
