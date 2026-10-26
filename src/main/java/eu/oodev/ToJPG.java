@@ -9,8 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public  class dihhToJPG {
-
+public  class ToJPG {
 
     //Kompresija bez straty jakości
     public static void dihhToJpg(File dihh, File jpg, float quality) throws IOException {
