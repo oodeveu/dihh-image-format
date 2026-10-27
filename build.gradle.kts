@@ -1,7 +1,7 @@
 plugins {
     id("java")
-    application // Wtyczka wymagana, aby łatwo uruchamiać aplikację przez Gradle
-    id("org.openjfx.javafxplugin") version "0.1.0" // Poprawiona stabilna wersja
+    application
+    id("org.openjfx.javafxplugin") version "0.1.0"
 }
 
 group = "eu.oodev"
@@ -11,14 +11,21 @@ repositories {
     mavenCentral()
 }
 
-// Konfiguracja JavaFX - automatycznie pobierze odpowiednie biblioteki dla Twojego systemu
 javafx {
-    version = "21" // Wersja dopasowana do LTS (działa z JDK 21 i nowszymi)
-    modules("javafx.controls", "javafx.web") // 'javafx.web' odpowiada za obsługę HTML/JS
+    version = "21"
+    modules("javafx.controls", "javafx.web") // 'javafx.web'
 }
 
 application {
-    mainClass.set("eu.oodev.MainApp") // Wskaż tutaj pełną ścieżkę do swojej klasy głównej
+    mainClass.set("eu.oodev.GuiLauncher")
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir("assets")
+        }
+    }
 }
 
 dependencies {
