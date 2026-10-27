@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Podaj sciezke do pliku:");
@@ -25,18 +25,17 @@ public class Main {
             return;
         }
 
-        // nazwy wyjsciowe na podstawie wejsciowej (foto.png -> foto.dihh, foto_back.png)
+        // wyjscie
         String base = path.replaceAll("\\.[^.\\\\/]+$", "");
         File dihh = new File(base + ".dihh");
-        File back = new File(base + "_back.png");
+        File back = new File(base + "_back.jpg");
 
         DihhLossy.write(img, dihh, 40);
         long size = dihh.length();
         System.out.printf("Rozmiar po konwersji: %d bajtow (%.1fx mniej)%n",
                 size, (double) in.length() / size);
 
-        BufferedImage decoded = DihhLossy.read(dihh);
-        ImageIO.write(decoded, "png", back);
+        Convert.dihhToJpg(dihh, back, 0.9f);
         System.out.println("Zapisano podglad po dekompresji: " + back);
     }
 }

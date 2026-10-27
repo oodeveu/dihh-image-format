@@ -6,7 +6,7 @@ import java.util.zip.*;
 
 public class Dihh {
     private static final byte[] MAGIC = {'D', 'I', 'H', 'H'};
-    private static final int VER = 3; // RGB bez alfy
+    private static final int VER = 4;
 
     public static void write(BufferedImage img, File file) throws IOException {
         int w = img.getWidth();

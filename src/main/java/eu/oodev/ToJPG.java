@@ -9,11 +9,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public  class ToJPG {
+public  class ToJPG extends Convert {
 
-    //Kompresija bez straty jakości
+    // kompresja bezstratna
     public static void dihhToJpg(File dihh, File jpg, float quality) throws IOException {
-        BufferedImage img = Dihh.read(dihh);
+        BufferedImage img = DihhLossy.read(dihh);
 
         var writers = ImageIO.getImageWritersByFormatName("jpg");
         if (!writers.hasNext()) {
@@ -31,9 +31,5 @@ public  class ToJPG {
         } finally {
             writer.dispose();
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-        dihhToJpg(new File("input.dihh"), new File("output.jpg"), 0.9f);
     }
 }

@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class ToPNG {
+public class ToPNG extends Convert {
     public static void dihhToPng(File dihh, File png) throws IOException {
         BufferedImage img = Dihh.read(dihh);
         if (!ImageIO.write(img, "png", png)) {
